@@ -1,0 +1,19 @@
+<view class="settings-container">
+  <view class="avatar-section">
+    <view class="section-title">头像</view>
+    <view class="avatar-wrapper" bindtap="chooseImage">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/my-image.png'}}"></image>
+      <text class="tip">点击更换头像</text>
+    </view>
+  </view>
+
+  <view class="nickname-section">
+    <view class="section-title">昵称</view>
+    <input class="nickname-input" 
+           value="{{userInfo.nickName}}" 
+           placeholder="请输入昵称"
+           bindinput="onNicknameChange"/>
+  </view>
+
+  <button class="save-btn" type="primary" bindtap="saveSettings">保存修改</button>
+</view> 

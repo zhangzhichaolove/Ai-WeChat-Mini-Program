@@ -1,0 +1,296 @@
+.moments-container {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;  /* 防止横向滚动 */
+}
+
+.moments-header {
+  position: relative;
+  height: 400rpx;
+  width: 100%;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+.user-info {
+  position: absolute;
+  right: 30rpx;
+  bottom: -60rpx;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  border: 4rpx solid #fff;
+  margin-left: 20rpx;
+}
+
+.nickname {
+  color: #333;
+  font-size: 32rpx;
+  margin-right: 20rpx;
+}
+
+.publish-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #1296db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 50rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.moments-list {
+  padding: 80rpx 20rpx 30rpx;  /* 调整左右内边距 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.moment-item {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.moment-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 16rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.moment-content {
+  padding-left: 96rpx;
+}
+
+.content-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.moment-image {
+  width: 220rpx;  /* 调整图片宽度 */
+  height: 220rpx;
+  margin: 4rpx;
+  border-radius: 8rpx;
+}
+
+.location {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 12rpx;
+}
+
+.moment-time {
+  font-size: 24rpx;
+  color: #999;
+  margin: 12rpx 0;
+}
+
+.interaction-area {
+  border-top: 1rpx solid #eee;
+  padding-top: 16rpx;
+  margin-top: 16rpx;
+}
+
+.like-comment-btn {
+  text-align: right;
+  color: #666;
+}
+
+.likes-section {
+  background: #f8f8f8;
+  padding: 12rpx;
+  border-radius: 8rpx;
+  margin-top: 12rpx;
+}
+
+.likes-list {
+  display: inline;
+  font-size: 26rpx;
+  color: #576b95;
+}
+
+.comments-section {
+  background: #f8f8f8;
+  padding: 12rpx;
+  border-radius: 8rpx;
+  margin-top: 8rpx;
+}
+
+.comment-item {
+  font-size: 26rpx;
+  margin: 8rpx 0;
+}
+
+.comment-user {
+  color: #576b95;
+}
+
+.comment-content {
+  color: #333;
+}
+
+/* 发布动态弹窗样式 */
+.publish-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.close-btn {
+  font-size: 40rpx;
+  color: #999;
+}
+
+.content-input {
+  width: 100%;
+  height: 200rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #eee;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.image-upload-area {
+  margin: 20rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.image-upload-area .image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;  /* 使用 gap 替代 margin */
+}
+
+.image-item {
+  position: relative;
+  width: 220rpx;  /* 调整上传图片的宽度 */
+  height: 220rpx;
+}
+
+.image-item image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.delete-btn {
+  position: absolute;
+  top: -16rpx;
+  right: -16rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-btn {
+  width: 220rpx;  /* 保持与图片项相同的宽度 */
+  height: 220rpx;
+  border: 1rpx dashed #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 60rpx;
+}
+
+.location-picker {
+  padding: 20rpx 0;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.publish-button {
+  background: #1296db;
+  color: #fff;
+  border-radius: 12rpx;
+  margin-top: 30rpx;
+}
+
+.loading, .no-more {
+  text-align: center;
+  color: #999;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+} 

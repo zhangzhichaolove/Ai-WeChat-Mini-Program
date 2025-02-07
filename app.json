@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/chat/chat",
+    "pages/moments/moments",
+    "pages/profile/profile",
+    "pages/settings/settings",
+    "pages/about/about",
+    "pages/message-center/message-center"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "AI助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "聊天",
+        "iconPath": "images/tabbar/chat.png",
+        "selectedIconPath": "images/tabbar/chat-active.png"
+      },
+      {
+        "pagePath": "pages/moments/moments",
+        "text": "朋友圈",
+        "iconPath": "images/tabbar/moments.png",
+        "selectedIconPath": "images/tabbar/moments-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tabbar/profile.png",
+        "selectedIconPath": "images/tabbar/profile-active.png"
+      }
+    ]
+  }
+} 

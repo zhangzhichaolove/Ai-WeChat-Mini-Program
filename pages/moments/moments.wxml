@@ -1,0 +1,131 @@
+<view class="moments-container">
+  <!-- 顶部背景和用户信息 -->
+  <view class="moments-header">
+    <image class="cover-image" src="{{userInfo.coverUrl || defaultImages.cover}}" mode="aspectFill"></image>
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || defaultImages.avatar}}" mode="aspectFill"></image>
+      <text class="nickname">{{userInfo.nickName || '未设置昵称'}}</text>
+    </view>
+  </view>
+
+  <!-- 发布按钮 -->
+  <view class="publish-btn" bindtap="showPublishModal">
+    <text class="iconfont icon-add">+</text>
+  </view>
+
+  <!-- 朋友圈列表 -->
+  <scroll-view class="moments-list" scroll-y="true" bindscrolltolower="loadMore">
+    <block wx:for="{{momentsList}}" wx:key="id">
+      <view class="moment-item">
+        <!-- 用户信息 -->
+        <view class="moment-user">
+          <image class="user-avatar" src="{{item.userInfo.avatarUrl}}" mode="aspectFill"></image>
+          <text class="user-name">{{item.userInfo.nickName}}</text>
+        </view>
+        
+        <!-- 动态内容 -->
+        <view class="moment-content">
+          <text class="content-text">{{item.content}}</text>
+          
+          <!-- 图片列表 -->
+          <view class="image-list" wx:if="{{item.images.length > 0}}">
+            <block wx:for="{{item.images}}" wx:for-item="image" wx:key="*this">
+              <image class="moment-image" 
+                     src="{{image}}" 
+                     mode="aspectFill"
+                     bindtap="previewImage"
+                     data-urls="{{item.images}}"
+                     data-current="{{image}}">
+              </image>
+            </block>
+          </view>
+          
+          <!-- 位置信息 -->
+          <view class="location" wx:if="{{item.location}}">
+            <text class="iconfont icon-location"></text>
+            <text>{{item.location}}</text>
+          </view>
+          
+          <!-- 发布时间 -->
+          <view class="moment-time">{{item.createTime}}</view>
+          
+          <!-- 互动区域 -->
+          <view class="interaction-area">
+            <view class="like-comment-btn" bindtap="toggleLikeComment" data-id="{{item.id}}">
+              <text class="iconfont icon-more">...</text>
+            </view>
+            
+            <!-- 点赞列表 -->
+            <view class="likes-section" wx:if="{{item.likes.length > 0}}">
+              <text class="iconfont icon-like">❤</text>
+              <view class="likes-list">
+                <text wx:for="{{item.likes}}" 
+                      wx:for-item="like" 
+                      wx:key="*this">{{like}}{{index < item.likes.length-1 ? '，' : ''}}</text>
+              </view>
+            </view>
+            
+            <!-- 评论列表 -->
+            <view class="comments-section" wx:if="{{item.comments.length > 0}}">
+              <view class="comment-item" 
+                    wx:for="{{item.comments}}" 
+                    wx:for-item="comment" 
+                    wx:key="id">
+                <text class="comment-user">{{comment.userName}}</text>
+                <text>：</text>
+                <text class="comment-content">{{comment.content}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 加载更多 -->
+    <view class="loading" wx:if="{{isLoading}}">正在加载...</view>
+    <view class="no-more" wx:if="{{noMore}}">没有更多内容了</view>
+  </scroll-view>
+</view>
+
+<!-- 发布动态弹窗 -->
+<view class="publish-modal" wx:if="{{showPublishModal}}">
+  <view class="modal-mask" bindtap="hidePublishModal"></view>
+  <view class="modal-content">
+    <view class="modal-header">
+      <text>发布动态</text>
+      <text class="close-btn" bindtap="hidePublishModal">×</text>
+    </view>
+    
+    <view class="modal-body">
+      <textarea class="content-input" 
+                placeholder="这一刻的想法..." 
+                value="{{newMoment.content}}"
+                bindinput="onContentInput">
+      </textarea>
+      
+      <view class="image-upload-area">
+        <view class="image-list">
+          <block wx:for="{{newMoment.images}}" wx:key="*this">
+            <view class="image-item">
+              <image src="{{item}}" mode="aspectFill"></image>
+              <view class="delete-btn" bindtap="deleteImage" data-index="{{index}}">×</view>
+            </view>
+          </block>
+          
+          <view class="upload-btn" bindtap="chooseImage" wx:if="{{newMoment.images.length < 9}}">
+            <text class="iconfont icon-add">+</text>
+          </view>
+        </view>
+      </view>
+      
+      <view class="location-picker" bindtap="chooseLocation">
+        <text class="iconfont icon-location"></text>
+        <text>{{newMoment.location || '所在位置'}}</text>
+      </view>
+    </view>
+    
+    <view class="modal-footer">
+      <button class="publish-button" bindtap="publishMoment">发布</button>
+    </view>
+  </view>
+</view> 

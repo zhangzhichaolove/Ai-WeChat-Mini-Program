@@ -1,0 +1,32 @@
+<view class="message-center">
+  <view class="header">
+    <view class="title">消息中心 ({{messages.length}})</view>
+    <view class="read-all" bindtap="readAllMessages" wx:if="{{hasUnread}}">
+      全部已读
+    </view>
+  </view>
+
+  <scroll-view class="message-list" scroll-y="true" enhanced="true" show-scrollbar="true">
+    <block wx:if="{{messages.length > 0}}">
+      <view class="message-item {{item.isRead ? '' : 'unread'}}" 
+            wx:for="{{messages}}" 
+            wx:key="id" 
+            bindtap="readMessage" 
+            data-id="{{item.id}}">
+        <view class="message-content">
+          <view class="message-title">
+            {{item.title}}
+            <view class="unread-dot" wx:if="{{!item.isRead}}"></view>
+          </view>
+          <view class="message-brief">{{item.content}}</view>
+          <view class="message-time">{{item.time}}</view>
+        </view>
+      </view>
+    </block>
+    
+    <view class="empty-message" wx:else>
+      <image class="empty-icon" src="/images/empty-message.png"></image>
+      <text>暂无消息</text>
+    </view>
+  </scroll-view>
+</view> 
