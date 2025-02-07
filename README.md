@@ -1,4 +1,4 @@
-# 微信小程序项目
+# AI自动编写的微信小程序项目。
 
 ## 项目简介
 这是一个基于微信小程序开发的社交应用，包含朋友圈、个人主页、消息中心等功能模块。
@@ -9,14 +9,26 @@
 - 消息中心：处理用户消息通知
 - 设置中心：用户可以管理个人设置
 
+## 项目截图 
+
+![chat](./screenshot/chat.png)
+![moments](./screenshot/moments.png)
+![profile](./screenshot/profile.png)
+![edit-profile](./screenshot/edit-profile.png)
+![message](./screenshot/message.png)
+![about](./screenshot/about.png)
+
+
 ## 项目结构 
 
+```
 ├── pages/
 │ ├── moments/ # 朋友圈模块
 │ ├── profile/ # 个人主页模块
 │ ├── message-center/ # 消息中心模块
 │ └── settings/ # 设置模块
 └── project.config.json # 项目配置文件
+```
 
 ## 开发环境
 - 微信开发者工具

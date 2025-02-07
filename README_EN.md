@@ -1,4 +1,4 @@
-# WeChat Mini Program Project
+# A WeChat mini program project automatically written by AI.
 
 ## Project Overview
 This is a social networking application developed based on WeChat Mini Program, including features such as Moments, Personal Profile, Message Center, and more.
@@ -9,14 +9,26 @@ This is a social networking application developed based on WeChat Mini Program, 
 - Message Center: Handle user message notifications
 - Settings: Users can manage personal settings
 
+## Project screenshot 
+
+![chat](./screenshot/chat.png)
+![moments](./screenshot/moments.png)
+![profile](./screenshot/profile.png)
+![edit-profile](./screenshot/edit-profile.png)
+![message](./screenshot/message.png)
+![about](./screenshot/about.png)
+
+
 ## Project Structure 
 
+```
 ├── pages/
 │ ├── moments/ # Moments module
 │ ├── profile/ # User profile module
 │ ├── message-center/ # Message center module
 │ └── settings/ # Settings module
 └── project.config.json # Project configuration file
+```
 
 ## Development Environment
 - WeChat Developer Tools
