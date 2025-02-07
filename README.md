@@ -1,6 +1,6 @@
 # AI自动编写的微信小程序项目。
 
-## 英文文档
+## English Document
 [README_EN.md](README_EN.md)
 
 ## 项目简介
